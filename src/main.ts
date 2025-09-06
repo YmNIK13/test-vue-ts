@@ -1,5 +1,10 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
+import setupPrimeVue  from "./plugins/primevue.ts";
+
+
 import './style.css'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+setupPrimeVue(app)
+app.mount('#app')
