@@ -12,19 +12,24 @@ const updateInfo = () => {
 
 <template>
   <Panel>
-
-    <FloatLabel variant="on">
-      <input-text id="name" v-model="name" placeholder="name"/>
-      <label for="name">Name</label>
-    </FloatLabel>
-    <FloatLabel variant="on">
-      <input-number id="age" v-model="age" type="number" placeholder="age"/>
-      <label for="age">Age</label>
-    </FloatLabel>
-    <Button @click="updateInfo">Update info</Button>
+    <div class="block-form">
+      <FloatLabel variant="on">
+        <input-text id="name" v-model="name" placeholder="name"/>
+        <label for="name">Name</label>
+      </FloatLabel>
+      <FloatLabel variant="on">
+        <input-number id="age" v-model="age" type="number" placeholder="age"/>
+        <label for="age">Age</label>
+      </FloatLabel>
+      <Button @click="updateInfo">Update info</Button>
+    </div>
   </Panel>
 </template>
 
 <style scoped>
-
+.block-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 </style>
