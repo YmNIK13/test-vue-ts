@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import {ref} from 'vue'
 
+import {usePeople} from "@/composables/usePeople";
+
 const name = ref<string>("")
 const age = ref<number | null>(null)
 
+const {user, updateUser} = usePeople()
+
 const updateInfo = () => {
-  console.log(name.value, age.value)
+  updateUser({name: name.value, age: age.value ?? 0})
+
+  console.log(name.value, user)
 }
 
 </script>
