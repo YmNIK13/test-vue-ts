@@ -2,11 +2,12 @@
 import {useRouter} from "vue-router";
 import CounterBox from "@/components/CounterBox.vue";
 import HelloUser from "@/components/HelloUser.vue";
+import CounterPiniaBox from "@/components/CounterPiniaBox.vue";
 
 const router = useRouter()
 
 const goToProfile = () => {
-  router.push({name: 'profile', params: {id: '123'}})
+  router.push({name: 'profile', params: {id: 'vasja'}})
 }
 
 </script>
@@ -16,6 +17,7 @@ const goToProfile = () => {
   <div>
     <HelloUser/>
     <CounterBox title="Лічильник"/>
+    <CounterPiniaBox/>
   </div>
   <hr/>
   <Button @click="goToProfile">Go to profile</Button>
