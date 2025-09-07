@@ -1,41 +1,33 @@
-<script setup lang="ts">
-import { ref } from 'vue'
+<script lang="ts" setup>
+import { ref, reactive, computed } from 'vue'
 
-defineProps<{ msg: string }>()
+// ref з типом number
+const count = ref<number>(0)
 
-const count = ref(0)
+// reactive з інтерфейсом
+interface User {
+  name: string
+  age: number
+}
+const user = reactive<User>({
+  name: 'Anna',
+  age: 25
+})
+
+// computed з типом string
+const greeting = computed<string>(() => `Hello, ${user.name}!`)
+
+// функція з типами параметрів і повернення
+function increment(step: number): void {
+  count.value += step
+}
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
+  <div>
+    <p>{{ greeting }}</p>
+    <p>Count: {{ count }}</p>
+    <button @click="increment(1)">+1</button>
+    <button @click="increment(5)">+5</button>
   </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Learn more about IDE Support for Vue in the
-    <a
-      href="https://vuejs.org/guide/scaling-up/tooling.html#ide-support"
-      target="_blank"
-      >Vue Docs Scaling up Guide</a
-    >.
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
-
-<style scoped>
-.read-the-docs {
-  color: #888;
-}
-</style>

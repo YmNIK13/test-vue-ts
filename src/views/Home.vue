@@ -9,6 +9,9 @@ const router = useRouter()
 const goToProfile = () => {
   router.push({name: 'profile', params: {id: 'vasja'}})
 }
+const goToTest = () => {
+  router.push({name: 'test'})
+}
 
 </script>
 
@@ -21,6 +24,7 @@ const goToProfile = () => {
   </div>
   <hr/>
   <Button @click="goToProfile">Go to profile</Button>
+  <Button @click="goToTest">Go to Test</Button>
 </template>
 
 <style scoped>
