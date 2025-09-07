@@ -56,19 +56,33 @@ const newTask = ref<string>('')
     <input v-model="newTask" @keyup.enter="addTask(newTask); newTask=''" placeholder="New task..."/>
 
     <ul>
-      <li v-for="todo in todos" :key="todo.id">
+      <li v-for="todo in todos" :key="todo.id" class="item">
+        <span style="text-align: left">
         <slot name="todo" :todo="todo">
           <span :style="{ textDecoration: todo.done ? 'line-through' : 'none' }">
             {{ todo.text }}
           </span>
         </slot>
-        <button @click="toggleTask(todo.id)">✔</button>
-        <button @click="removeTask(todo.id)">❌</button>
+        </span>
+        <span class="actions">
+          <button @click="toggleTask(todo.id)">✔</button>
+          <button @click="removeTask(todo.id)">❌</button>
+        </span>
       </li>
     </ul>
   </div>
 </template>
 
 <style scoped>
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
 
+.actions {
+  display: flex;
+  gap: 4px; /* щоб кнопки не злипалися */
+}
 </style>
