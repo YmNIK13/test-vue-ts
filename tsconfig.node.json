@@ -5,22 +5,22 @@
     "lib": ["ES2023"],
     "module": "ESNext",
     "skipLibCheck": true,
-    "types": ["node"],
+    "types": ["node", "vite/node"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": true, // забороняє писати без розширення, але дозволяє імпортувати файли з розширенням .ts прямо в коді.
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
-    "noEmit": true,
+    "noEmit": true, // не створювати JS-файли при компіляції (бо збірку робить Vite).
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": true, // помилка, якщо є змінні, які ніде не використовуються.
+    "noUnusedParameters": true, // помилка, якщо параметр функції не використовується.
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noFallthroughCasesInSwitch": true, // забороняє пропускати break у switch без явного fallthrough.
+    "noUncheckedSideEffectImports": true // забороняє імпорти, які виконують побічні ефекти без використання.
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts"] // Каже TypeScript, що цей конфіг стосується лише файлу vite.config.ts
 }
