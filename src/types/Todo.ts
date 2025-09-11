@@ -11,3 +11,9 @@ export interface Todo {
     text: string
     done: boolean
 }
+
+export interface TodoJ {
+    id: number
+    title: string
+    completed: boolean
+}

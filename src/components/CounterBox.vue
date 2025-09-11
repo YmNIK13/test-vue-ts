@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import {defineProps} from 'vue'
 import {useCounter} from "@/composables/useCounter";
 
 defineProps<{ title: string }>()

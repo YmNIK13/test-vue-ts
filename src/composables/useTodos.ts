@@ -1,6 +1,6 @@
-import { ref } from 'vue'
+import {ref} from 'vue'
 import axios from 'axios'
-import type { Todo, ApiTodo } from '@/types/Todo'
+import type {Todo, ApiTodo} from '@/types/Todo'
 
 export function useTodos() {
     const todos = ref<Todo[]>([])
@@ -10,8 +10,8 @@ export function useTodos() {
     async function fetchTodos() {
         loading.value = true
         try {
-            const { data } = await axios.get<ApiTodo[]>('https://jsonplaceholder.typicode.com/todos?_limit=15')
-            todos.value = data.map(d => ({
+            const {data} = await axios.get<ApiTodo[]>('https://jsonplaceholder.typicode.com/todos?_limit=15')
+            todos.value = data.map((d: ApiTodo) => ({
                 id: d?.id,
                 text: d?.title,
                 done: d?.completed
@@ -36,5 +36,5 @@ export function useTodos() {
         todos.value = todos.value.filter(t => t.id !== id)
     }
 
-    return { todos, loading, error, fetchTodos, add, toggle, remove }
+    return {todos, loading, error, fetchTodos, add, toggle, remove}
 }

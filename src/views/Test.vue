@@ -4,6 +4,9 @@ import HelloWorld from "@/components/HelloWorld.vue";
 import Counter from "@/components/Counter.vue";
 import TodoList from "@/components/TodoList.vue";
 import {useTodos} from "@/composables/useTodos.ts";
+import {useRouter} from "vue-router";
+
+const router = useRouter()
 
 
 function handleIncrement(newValue: number) {
@@ -12,6 +15,10 @@ function handleIncrement(newValue: number) {
 
 function handleReset() {
   console.log('Counter reset')
+}
+
+function goHome() {
+  router.push({name: 'home'})
 }
 
 const {todos, loading, error, fetchTodos} = useTodos()
@@ -46,5 +53,8 @@ onMounted(fetchTodos)
       </template>
     </TodoList>
   </div>
+
+  <hr/>
+  <Button @click="goHome">Go home</Button>
 
 </template>

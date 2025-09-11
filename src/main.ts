@@ -4,7 +4,7 @@ import './style.css'
 import './example'
 
 import setupPrimeVue from "./plugins/primevue.ts";
-import router from "./router/index.ts";
+import router from "@/router";
 import {createPinia} from 'pinia'
 
 const app = createApp(App)
